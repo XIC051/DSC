@@ -1,4 +1,5 @@
 # DSC80-Project3-Report
+by Xiaojie Chen(A17015417), Chenri Luo(A17015417)
 ## Introduction
 ## Cleaning and EDA
 ### Data Cleaning
