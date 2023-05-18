@@ -3,7 +3,7 @@ by Xiaojie Chen(A17015417), Chenri Luo(A17015417)
 ## Introduction
 ## Cleaning and EDA
 ### Data Cleaning
-1. We **left merged** the recipes and interactions datasets together and then **filled all ratings of 0 with np.nan**. 
+1. We **left merged** the recipes and interactions datasets together and then **filled all ratings of 0 with** `np.nan`. 
 - This is because NaN values are typically excluded from statistical calculations such as mean, median, and standard deviation. By converting 0 ratings to NaN, we can ensure that these calculations accurately represent the ratings provided by users, without distorting the statistical measures due to explicit low ratings.
 2. We **dropped the duplicate id column**, which is `recipe_id`. 
 - As after merging two data frames, which are ratings and interactions, both dataframes have the recipe id columns, which are unneccessary to have two columns. So we delete one to save some time when doing the analysis. 
