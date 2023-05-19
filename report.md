@@ -72,7 +72,7 @@ mean minutes of high average-rating recipes - mean minutes of low average-rating
 #### 7.justification
 
 
-<iframe src="assets/permutations.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/permutation.html" width=800 height=600 frameBorder=0></iframe>
 
 
 
