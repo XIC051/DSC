@@ -52,17 +52,17 @@ The column `description` is NMAR, because users might have chosen not to provide
 
 The missingness of column `average rating` **does** depend on the column `n_steps`. 
 
-<iframe src="assets/steps_missingness_first.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/steps_missingness_1st.html" width=800 height=600 frameBorder=0></iframe>
 
-<iframe src="assets/steps_missingness_second.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/steps_missingness_2nd.html" width=800 height=600 frameBorder=0></iframe>
 
 #### 2. does not depend on
 
 The missingness of column `average rating` **does not** depend on the column `sodium`. 
 
-<iframe src="assets/sodium_missingness_first.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/sodium_missingness_1st.html" width=800 height=600 frameBorder=0></iframe>
 
-<iframe src="assets/sodium_missingness_second.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/sodium_missingness_2nd.html" width=800 height=600 frameBorder=0></iframe>
 
 
 
