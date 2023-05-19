@@ -44,7 +44,13 @@ by Xiaojie Chen(A17015417), Chenri Luo(A16636808)
 ## Assessment of Missingness
 ### NMAR Analysis
 
-The column `description` is NMAR, because users might have chosen not to provide a description for certain recipes or left it blank intentionally. In order to further investigate potentially make it Missing at Random (MAR), additional data I would like to obtain can be user demographics,
+The column `description` is NMAR, because users might have chosen not to provide a description for certain recipes or left it blank intentionally. In order to further investigate potentially make it Missing at Random (MAR), additional data we would like to obtain can be user demographics, such as age, gender, or location, so we can further investigate whether the missingness of description depend on these factors or not. For example, if older users tend to not writing description when rating a recipe, it will change the missingness mechansim of description to MAR. 
+
+### Missingness Dependency
+
+#### 1. MAR
+
+#### 2. MCAR
 
 ## Hypothesis Testing
 
@@ -70,7 +76,6 @@ mean minutes of high average-rating recipes - mean minutes of low average-rating
 0.0
  
 #### 7.justification
-
 
 <iframe src="assets/permutation.html" width=800 height=600 frameBorder=0></iframe>
 
