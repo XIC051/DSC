@@ -52,7 +52,23 @@ The column `description` is NMAR, because users might have chosen not to provide
 
 The missingness of column `average rating` **does** depend on the column `n_steps`. 
 
+##### Null hypothesis: 
+the distribution of `n_steps` is the same when column `average rating` is missing and when column `average rating` is not missing. 
+
+##### Alternative hypothesis: 
+the distribution of `n_steps` is not the same when column `average rating` is missing and when column `average rating` is not missing.
+ 
+##### Distribution of column `n_steps` when column `average rating` is missing and not missing
+
 <iframe src="assets/steps_missingness_1st.html" width=800 height=600 frameBorder=0></iframe>
+
+##### test statistic
+
+We choose k-s as our test statistic 
+
+##### Result interpretation: 
+
+After doing 500 times of shuffling of the n_steps column and calculates the k-s test statistic, we get a p-value of 0.0, indicating that we should reject the null hypothesis under any siginificance value. We can draw the conclusion that  column `average rating` is MAR dependent on `n_steps`. 
 
 <iframe src="assets/steps_missingness_2nd.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -60,11 +76,21 @@ The missingness of column `average rating` **does** depend on the column `n_step
 
 The missingness of column `average rating` **does not** depend on the column `sodium`. 
 
+##### Null hypothesis: 
+the distribution of `sodium` is the same when column `average rating` is missing and when column `average rating` is not missing.
+
+##### Alternative hypothesis: 
+the distribution of `sodium` is not the same when column `average rating` is missing and when column `average rating` is not missing.
+
+##### Distribution of column `sodium` when column `average rating` is missing and not missing
+
 <iframe src="assets/sodium_missingness_1st.html" width=800 height=600 frameBorder=0></iframe>
 
+##### Result interpretation: 
+
+After doing 1000 times of shuffling of the sodium column and calculates the k-s test statistic, we get a p-value of 0.128, indicating that we fail to reject the null hypothesis under siginificance value of 0.05. We can draw the conclusion that the missingness of column `average rating` does not depend on column `sodium`.
+
 <iframe src="assets/sodium_missingness_2nd.html" width=800 height=600 frameBorder=0></iframe>
-
-
 
 
 ## Hypothesis Testing
