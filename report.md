@@ -48,22 +48,29 @@ The column `description` is NMAR, because users might have chosen not to provide
 
 ## Hypothesis Testing
 
-**clarification**: 
+#### 1.clarification
 We categorize the recipes into two different groups, using a threshold that is the mean average-rating of all recipes, which is around 4.6 
 high average-rating: recipes with average-rating that is higher than 4.6
 low average-rating: recipes with average-rating that is lower than 4.6
 
-**null hypothesis**: In the population, cooking time (minutes) of recipes with a high average-rating and recipes with a low average-rating have the same distribution, and the observed differences in our samples are due to random chance.
+#### 2.null hypothesis
+In the population, cooking time (minutes) of recipes with a high average-rating and recipes with a low average-rating have the same distribution, and the observed differences in our samples are due to random chance.
 
-**alternative hypothesis**: In the population, recipes with a high average-rating have shorter cooking time than recipes with low average-rating. The observed difference in our samples cannot be explained by random chance alone.
 
-**test statistic**: mean minutes of high average-rating recipes - mean minutes of low average-rating recipes
+#### 3.alternative hypothesis
+In the population, recipes with a high average-rating have shorter cooking time than recipes with low average-rating. The observed difference in our samples cannot be explained by random chance alone.
 
-**significance level**: 0.05
+#### 4.test statistic
+mean minutes of high average-rating recipes - mean minutes of low average-rating recipes
 
-**p-value**: 0.0
+#### 5.significance level
+0.05
+
+#### 6.p-value
+0.0
  
-**justification**:
+#### 7.justification
+
 
 
 
