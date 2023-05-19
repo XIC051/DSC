@@ -11,7 +11,7 @@ This is because NaN values are typically excluded from statistical calculations 
 
 As after merging two data frames, which are ratings and interactions, both dataframes have the recipe id columns, which are unneccessary to have two columns. So we delete one to save some time when doing the analysis. 
 
-3. We found the **averate rating per recipe** as a Series and then added this Series to the merged dataframe, which finalizes our data frame used for all of our analysis. 
+#### 3. We found the **averate rating per recipe** as a Series and then added this Series to the merged dataframe, which finalizes our data frame used for all of our analysis. 
 
 As for the same recipe, it may have several rows (i.e receive more than one ratings and reviews), so by getting a average rating of each recipe, we can get a single representative rating that indicates overall sentiment or perceived quality of each recipe. 
 
