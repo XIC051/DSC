@@ -95,28 +95,28 @@ After doing 1000 times of shuffling of the sodium column and calculates the k-s 
 
 ## Hypothesis Testing
 
-#### 1.clarification
+#### 1. Clarification
 We categorize the recipes into two different groups, using a threshold that is the mean average-rating of all recipes, which is around 4.6 
 high average-rating: recipes with average-rating that is higher than 4.6
 low average-rating: recipes with average-rating that is lower than 4.6
 
-#### 2.null hypothesis
+#### 2. Null Hypothesis
 In the population, cooking time (minutes) of recipes with a high average-rating and recipes with a low average-rating have the same distribution, and the observed differences in our samples are due to random chance.
 
 
-#### 3.alternative hypothesis
+#### 3. Alternative Hypothesis
 In the population, recipes with a high average-rating have shorter cooking time than recipes with low average-rating. The observed difference in our samples cannot be explained by random chance alone.
 
-#### 4.test statistic
+#### 4. Test Statistic
 mean minutes of high average-rating recipes - mean minutes of low average-rating recipes
 
-#### 5.significance level
+#### 5. Significance Level
 0.05
 
-#### 6.p-value
+#### 6. P-value
 0.0
  
-#### 7.justification
+#### 7.Justification
 
 <iframe src="assets/permutation.html" width=800 height=600 frameBorder=0></iframe>
 
