@@ -48,9 +48,11 @@ The column `description` is NMAR, because users might have chosen not to provide
 
 ### Missingness Dependency
 
-#### 1. MAR
+#### 1. depends on
+The missingness of column `average rating` **does** depend on the column `n_steps`. 
 
-#### 2. MCAR
+#### 2. does not depend on
+The missingness of column `average rating` **does not** depend on the column `n_ingredients`. 
 
 ## Hypothesis Testing
 
