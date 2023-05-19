@@ -44,28 +44,40 @@ by Xiaojie Chen(A17015417), Chenri Luo(A16636808)
 ## Assessment of Missingness
 ### NMAR Analysis
 
-The column `description` is NMAR, because users might have chosen not to provide a description for certain recipes or left it blank intentionally. In order to further investigate potentially make it Missing at Random (MAR), additional data I would like to obtain can be user demographics, 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The column `description` is NMAR, because users might have chosen not to provide a description for certain recipes or left it blank intentionally. In order to further investigate potentially make it Missing at Random (MAR), additional data I would like to obtain can be user demographics,
 
 ## Hypothesis Testing
+
+**clarification**: 
+We categorize the recipes into two different groups, using a threshold that is the mean average-rating of all recipes, which is around 4.6 
+high average-rating: recipes with average-rating that is higher than 4.6
+low average-rating: recipes with average-rating that is lower than 4.6
+
+**null hypothesis**: In the population, cooking time (minutes) of recipes with a high average-rating and recipes with a low average-rating have the same distribution, and the observed differences in our samples are due to random chance.
+
+**alternative hypothesis**: In the population, recipes with a high average-rating have shorter cooking time than recipes with low average-rating. The observed difference in our samples cannot be explained by random chance alone.
+
+**test statistic**: mean minutes of high average-rating recipes - mean minutes of low average-rating recipes
+
+**significance level**: 0.05
+
+**p-value**: 0.0
+ 
+**justification**:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
