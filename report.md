@@ -191,7 +191,7 @@ After doing 1000 times of shuffling of the sodium column and calculates the k-s 
 <iframe src="assets/sodium_missingness_2nd.html" width=800 height=600 frameBorder=0></iframe>
 
 
-## Hypothesis Testing
+## Hypothesis(Permutation) Testing
 
 #### 1. Clarification
 
@@ -201,7 +201,7 @@ We categorize the recipes into two different groups, using a threshold that is t
 
 **low average-rating**: recipes with average-rating that is lower than 4.6
 
-We chose 4.6 because as mentioned above in the **Univariate Analysis** section, about 64% of average rating is in the range of 4.75 - 5, so most of the recipes receive a very high rating. Therefore, we choose to use the mean of all average ratings to distinguish recipes with **high average-rating** and **low average-rating**. We choose to do a permutation testing to see whether the two groups of recipes with low and high average-ratings come from the same distribution or not. 
+We chose 4.6 because as mentioned above in the **Univariate Analysis** section, about 64% of average rating is in the range of 4.75 - 5, so most of the recipes receive a very high rating. Therefore, we choose to use the mean of all average ratings to distinguish recipes with **high average-rating** and **low average-rating**. We choose to do a **permutation testing** to see whether the two groups of recipes with low and high average-ratings come from the same distribution or not. 
 
 #### 2. Null Hypothesis
 
