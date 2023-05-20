@@ -60,16 +60,44 @@ We want to use bivariate analysis to determine if there is a statistical link be
 
 #### 2. scatter plot of average rating vs food calories
 
-
+<iframe src="assets/rating_calories.html" width=800 height=600 frameBorder=0></iframe>
 
 - We also wanted to observe whether calories were related to average rating, so we created a scatter plot of average rating vs food calories and used different colors for each point to distinguish minutes. But this graph doesn't show any inclination. So there's no connection between the two variables. 
 
 #### 3. side-by-side boxplots for minutes of recipes with average rating under 4.6 vs above 4.6
 
-- By analyzing this data frame, we know that the mean average rating is about 4.6. Therefore, we divided the data frame into two parts, one is the average rating of less than 4.6(low average rating), the other is greater than 4.6(high average rating). We want to know if there is a difference between cooking minutes with a high average rating and cooking minutes with a low average rating. As can be seen from the figure, there is a slight difference between the two groups. The low average rating of cooking minutes median was 40, while the other group was 35. And their Q3 is 65 and 60, respectively.
+<iframe src="assets/box.html" width=800 height=600 frameBorder=0></iframe>
+
+- By analyzing this data frame, we know that the mean average rating is about 4.6. Therefore, we divided the data frame into two parts, one is the average rating of less than 4.6(low average rating), the other is greater than 4.6 (high average rating). We want to know if there is a difference between cooking minutes with a high average rating and cooking minutes with a low average rating. As can be seen from the figure, there is a slight difference between the two groups. The low average rating of cooking minutes median was 40, while the other group was 35. And their Q3 is 65 and 60, respectively.
 
 
 ### Interesting Aggregates
+
+<bound method DataFrame.to_markdown of steps_bin              <5      5-10     10-15     15-20       20+
+ingredients_bin                                                  
+<5               4.664451  4.632570  4.612673  4.643534  4.674986
+5-10             4.620994  4.610623  4.610585  4.636359  4.661108
+10-15            4.619486  4.614542  4.616320  4.637568  4.652696
+15-20            4.680329  4.634028  4.660405  4.626751  4.612779
+20+              4.945588  4.714944  4.731400  4.706666  4.656127>
+
+#### columns We Chose: `average rating`, `n_steps`, `n_ingredients`
+
+#### Interpretation
+
+We put each value of `n_steps` and `n_ingredients` into five different bins, with ranges `bins = [0, 5, 10, 15, 20, np.inf]`. By grouping similar values together, we can now analyze and compare the data based on these categorized variables. 
+
+##### Table Info
+
+The pivot table presents the mean of average ratings for each combination of "ingredients_bin" and "steps_bin". The rows represent the different ranges of ingredient counts, while the columns represent the ranges of step counts. Each cell in the table contains the mean value of average rating for that specific combination.
+
+##### What can we tell
+
+From the table, we can observe that recipes in the 20+ number of ingredients bin and <5 number of steps have the highest mean of average ratings. So we can see this combination of steps and ingredients number is the most popular among other combinations. Also, by looking horizontally, we can observe that recipes with 20+ number of ingredients tend to have a higher mean of average rating than other recipes with lower number of ingredients. So we can derive that people tend to like recipes with more ingredients. 
+
+##### Significance
+
+By looking at this pivot table, we can assess whether recipes with more or fewer **ingredients** tend to receive higher ratings, at the same time, we can assess whether recipes with more of fewer **number of steps** tend to receive higher ratings. Also, by considering the mean of average ratings at the intersection of the rows and columns, you can explore how the combination of ingredient and step counts influences the recipe ratings. This analysis can reveal whether certain combinations lead to consistently higher or lower ratings compared to others.
 
 
 ## Assessment of Missingness
@@ -152,6 +180,7 @@ mean minutes of high average-rating recipes - mean minutes of low average-rating
 0.0
  
 #### 7.Justification
+
 
 <iframe src="assets/permutation.html" width=800 height=600 frameBorder=0></iframe>
 
