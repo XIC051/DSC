@@ -103,6 +103,7 @@ By looking at this pivot table, we can assess whether recipes with more or fewer
 
 
 ## Assessment of Missingness
+
 ### NMAR Analysis
 
 The column `description` is NMAR, because users might have chosen not to provide a description for certain recipes or left it blank intentionally. In order to further investigate potentially make it Missing at Random (MAR), additional data we would like to obtain can be user demographics, such as age, gender, or location, so we can further investigate whether the missingness of description depend on these factors or not. For example, if older users tend to not writing description when rating a recipe, it will change the missingness mechansim of `description` to MAR. 
@@ -157,48 +158,45 @@ After doing 1000 times of shuffling of the sodium column and calculates the k-s 
 ## Hypothesis Testing
 
 #### 1. Clarification
+
 We categorize the recipes into two different groups, using a threshold that is the mean average-rating of all recipes, which is around 4.6 
 
-high average-rating: recipes with average-rating that is higher than 4.6
+**high average-rating**: recipes with average-rating that is higher than 4.6
 
-low average-rating: recipes with average-rating that is lower than 4.6
+**low average-rating**: recipes with average-rating that is lower than 4.6
+
+We chose 4.6 because as mentioned above in the **Univariate Analysis** section, about 64% of average rating is in the range of 4.75 - 5, so most of the recipes receive a very high rating. Therefore, we choose to use the mean of all average ratings to distinguish recipes with **high average-rating** and **low average-rating**. We choose to do a permutation testing to see whether the two groups of recipes with low and high average-ratings come from the same distribution or not. 
 
 #### 2. Null Hypothesis
 
-In the population, cooking time (minutes) of recipes with a high average-rating and recipes with a low average-rating have the same distribution, and the observed differences in our samples are due to random chance.
-
+In the population, cooking time (minutes) of recipes with a **high average-rating** and recipes with a **low average-rating** have the same distribution, and the observed differences in our samples are due to random chance.
 
 #### 3. Alternative Hypothesis
 
 In the population, recipes with a high average-rating have shorter cooking time than recipes with low average-rating. The observed difference in our samples cannot be explained by random chance alone.
 
 #### 4. Test Statistic
+
+**difference in means:**
+
 mean minutes of high average-rating recipes - mean minutes of low average-rating recipes
 
 #### 5. Significance Level
+
 0.05
 
 #### 6. P-value
+
 0.0
  
-#### 7.Justification
+#### 7. Visualization of Distribution of cooking time  (minutes) by rating Status
 
+By dividing each recipe into two groups by their rating status, which is either **high average-rating group** or **low average-rating group**, we can draw two histograms of the distribution of cooking time of each rating status in one graph. So we can have a more direct sense of differences in the two distributions.  
+
+<iframe src="assets/dist_permutation.html" width=800 height=600 frameBorder=0></iframe>
+ 
+#### 8.Justification
+
+As 0.0 < 0.05, we reject our null hypothesis that cooking time (minutes) of recipes with a **high average-rating** and recipes with a **low average-rating** come from the same distribution. Although we cannot say that longer cooking times lead to lower average-rating of recipes, we can conclude that there is a significant relationship between the average rating of recipes and their cooking time. Under a significance level of 0.05, there is sufficient evidence to support that ecipes with a high average-rating **tend to have shorter cooking times** compared to recipes with a low average-rating. 
 
 <iframe src="assets/permutation.html" width=800 height=600 frameBorder=0></iframe>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
