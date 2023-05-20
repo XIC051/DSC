@@ -58,9 +58,13 @@ The resulting dataframe is named `filter_cal_df`.
 
 #### Cleaned dataframe for analysis of Missingness Dependency 
 
+For missingness dependency, we picked column `average rating` to analyze. We also picked column `sodium` and `n_steps`, to assess the dependency of the missingness of `average rating` on other columns, which are `sodium` and `n_steps`. For convenience, we created two separate dataframe specific for the permutation process. As the only columns involed are `["average rating", "n_steps"]` and `["average rating", "sodium"]`, the new data frame consists of only the neccessary columns and add a new column named `rating_missing`, which contain a boolean series indicating the missingness of average rating. 
+
 The resulting dataframes are named `df_step` and `df_sodium`. 
 
 #### Cleaned dataframe for permutation testing
+
+For the permutation testing, only columns `minutes`, `average rating` are involved. So we created a new DataFrame by getting only these two colmns first, then we dropped all the rows that have null values. Then we added a new column named `high rating`, which are boolean series indicating whether that specific recipe belongs to the low average-rating group (average rating <= 4.6) or high average-rating group (average rating > 4.6). Details about this grouping is explained in the **Hypothesis Testing Section**. 
 
 The resulting dataframe is named `df_plot`. 
                                                                                                                                            
@@ -131,7 +135,6 @@ From the table, we can observe that recipes in the 20+ number of ingredients bin
 ##### Significance
 
 By looking at this pivot table, we can assess whether recipes with more or fewer **ingredients** tend to receive higher ratings, at the same time, we can assess whether recipes with more of fewer **number of steps** tend to receive higher ratings. Also, by considering the mean of average ratings at the intersection of the rows and columns, you can explore how the combination of ingredient and step counts influences the recipe ratings. This analysis can reveal whether certain combinations lead to consistently higher or lower ratings compared to others.
-
 
 ## Assessment of Missingness
 
