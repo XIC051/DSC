@@ -73,13 +73,15 @@ We want to use bivariate analysis to determine if there is a statistical link be
 
 ### Interesting Aggregates
 
-|                   |      <5 |    5-10 |   10-15 |   15-20 |     20+ |
+| ingredients_bin   |      <5 |    5-10 |   10-15 |   15-20 |     20+ |
 |:------------------|--------:|--------:|--------:|--------:|--------:|
 | <5                | 4.66445 | 4.63257 | 4.61267 | 4.64353 | 4.67499 |
 | 5-10              | 4.62099 | 4.61062 | 4.61059 | 4.63636 | 4.66111 |
 | 10-15             | 4.61949 | 4.61454 | 4.61632 | 4.63757 | 4.6527  |
 | 15-20             | 4.68033 | 4.63403 | 4.66041 | 4.62675 | 4.61278 |
 | 20+               | 4.94559 | 4.71494 | 4.7314  | 4.70667 | 4.65613 |
+
+#### Note: the table has multi-index, the column index is the ingredients_bin, and the row index is the steps_bin. 
 
 #### columns We Chose: `average rating`, `n_steps`, `n_ingredients`
 
