@@ -118,7 +118,7 @@ We want to use bivariate analysis to determine if there is a statistical link be
 
 #### Note: the table has multi-index, the column index is the ingredients_bin, and the row index is the steps_bin. 
 
-#### columns We Chose: `average rating`, `n_steps`, `n_ingredients`
+#### Columns We Chose: `average rating`, `n_steps`, `n_ingredients`
 
 #### Interpretation
 
