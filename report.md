@@ -6,33 +6,64 @@ by Xiaojie Chen(A17015417), Chenri Luo(A16636808)
 
 #### 1. We **left merged** the recipes and interactions datasets together and then **filled all ratings of 0 with** `np.nan`. 
 
-- This is because NaN values are typically excluded from statistical calculations such as mean, median, and standard deviation. By converting 0 ratings to NaN, we can ensure that these calculations accurately represent the ratings provided by users, without distorting the statistical measures due to explicit low ratings.
+This is because NaN values are typically excluded from statistical calculations such as mean, median, and standard deviation. By converting 0 ratings to NaN, we can ensure that these calculations accurately represent the ratings provided by users, without distorting the statistical measures due to explicit low ratings.
 
 #### 2. We **dropped the duplicate id column**, which is `recipe_id`. 
 
-- As after merging two data frames, which are ratings and interactions, both dataframes have the recipe id columns, which are unneccessary to have two columns. So we delete one to save some time when doing the analysis. 
+As after merging two data frames, which are ratings and interactions, both dataframes have the recipe id columns, which are unneccessary to have two columns. So we delete one to save some time when doing the analysis. 
 
 #### 3. We found the **averate rating per recipe** as a Series and then added this Series to the merged dataframe. 
 
-- As for the same recipe, it may have several rows (i.e receive more than one ratings and reviews), so by getting a average rating of each recipe, we can get a single representative rating that indicates overall sentiment or perceived quality of each recipe. 
+As for the same recipe, it may have several rows (i.e receive more than one ratings and reviews), so by getting a average rating of each recipe, we can get a single representative rating that indicates overall sentiment or perceived quality of each recipe. 
 
 #### 4. We cleaned the `nutrition` column, from values that are list-look-like strings to actual lists, and then we created a separate column for every unique value in the `nutrition` lists, so now each value in list of the `nutrition` column has its own column titled `calories`, `total fat`, `sugar`, `sodium`, `protein`, `saturated fat`, and `carbohydrates`.  
 
-- By giving a separate column for each type of nutrient, it makes our analysis process faster and easier for inidivual analysis of each nutrient and also filtering like filter and sort recipes based on specific nutritional criteria. 
+By giving a separate column for each type of nutrient, it makes our analysis process faster and easier for inidivual analysis of each nutrient and also filtering like filter and sort recipes based on specific nutritional criteria. Also, when assessing Missingness Dependency, we picked the column `sodium` to access the dependency of missingness of `average rating` on `sodium`. 
 
-#### 5. Using the same procedure, we also clean the `tags`, `steps`,  and `ingredients` columns into actual lists, which are all originally list-look-like strings. 
+#### 5. We removed duplicate rows of unique recipe and only saved one row for each recipe. 
 
-#### 6. We dropped the `review` column. 
+As we have gained the data of average ratings for each recipe, and we can perform analysis on the average ratings for each recipe instead of the several ratings coming from severl users. 
 
-- It doesn't have much usage. 
+#### 6. Lastly, we dropped the `rating`,`user_id`, `date`, `review`, `contributor_id`, `steps`, `ingredients`, `tags`, `nutrition`, `submitted` columns
 
-#### 7. We removed duplicate rows of unique recipe and only saved one row for each recipe. 
-
-- As we have gained the data of average ratings for each recipe, and we can perform analysis on the average ratings for each recipe instead of the several ratings coming from severl users. 
-
+Throughout our whole analysis process, they don't have much usage. 
 
 - `head` of our cleaned DataFrame
-                                                                                                                                             
+
+| name                                 |     id |   minutes |   n_steps | description                                                                                                                                                                                                                                                                                                                                                                       |   n_ingredients |   average rating |   calories |   total fat |   sugar |   sodium |   protein |   saturated fat |   carbohydrates |
+|:-------------------------------------|-------:|----------:|----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------:|-----------------:|-----------:|------------:|--------:|---------:|----------:|----------------:|----------------:|
+| 1 brownies in the world    best ever | 333281 |        40 |        10 | these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you'll ever make.....sereiously! there's no doubt that these will be your fav brownies ever for you can add things to them or make them plain.....either way they're pure heaven!                                                                                                              |               9 |                4 |      138.4 |          10 |      50 |        3 |         3 |              19 |               6 |
+| 1 in canada chocolate chip cookies   | 453467 |        45 |        12 | this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best chocolate chip cookies i have ever had! if you don't have margarine or don't like it, then just use butter (softened) instead.                                                                                                                                            |              11 |                5 |      595.1 |          46 |     211 |       22 |        13 |              51 |              26 |
+| 412 broccoli casserole               | 306168 |        40 |         6 | since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008 |               9 |                5 |      194.8 |          20 |       6 |       32 |        22 |              36 |               3 |
+| millionaire pound cake               | 286009 |       120 |         7 | why a millionaire pound cake?  because it's super rich!  this scrumptious cake is the pride of an elderly belle from jackson, mississippi.  the recipe comes from "the glory of southern cooking" by james villas.                                                                                                                                                                |               7 |                5 |      878.3 |          63 |     326 |       13 |        20 |             123 |              39 |
+| 2000 meatloaf                        | 475785 |        90 |        17 | ready, set, cook! special edition contest entry: a mediterranean flavor inspired meatloaf dish. featuring: simply potatoes - shredded hash browns, egg, bacon, spinach, red bell pepper, and goat cheese.                                                                                                                                                                         |              13 |                5 |      267   |          30 |      12 |       12 |        29 |              48 |               2 |
+
+
+### Other Data Cleaning
+
+We also created several other dataframes basing on the original merged dataframe, which is `merged_df`, used for different analysis process as follows:
+
+#### Cleaned dataframe for analysis involing column `minutes`
+
+The original `merged_df` contains many receipes that have unreasonable cooking minutes,such as 1051200 minutes. We set cooking time with less than **720 mintues(12 hours)** as a resonable threshold. Therefore, we only want to focus on recipes with 720 or less cooking minutes and filter out the rows with extreme minutes values. 
+
+The resulting dataframe is named `filtered_df`. 
+
+#### Cleaned dataframe for analysis involing column `calories`
+
+The original `merged_df` contains many receipes that have unreasonable calories, such as 45609.0. We set calories with less than **3000**
+as a resonable threshold. Therefore, we only want to focus on recipes with 3000 or less calories and filter out the rows with extreme calories values. 
+
+The resulting dataframe is named `filter_cal_df`. 
+
+#### Cleaned dataframe for analysis of Missingness Dependency 
+
+The resulting dataframes are named `df_step` and `df_sodium`. 
+
+#### Cleaned dataframe for permutation testing
+
+The resulting dataframe is named `df_plot`. 
+                                                                                                                                           
   
 ### Univariate Analysis
 
@@ -139,9 +170,11 @@ After doing 500 times of shuffling of the n_steps column and calculates the k-s 
 The missingness of column `average rating` **does not** depend on the column `sodium`. 
 
 ##### Null hypothesis: 
+
 the distribution of `sodium` is the same when column `average rating` is missing and when column `average rating` is not missing.
 
 ##### Alternative hypothesis: 
+
 the distribution of `sodium` is not the same when column `average rating` is missing and when column `average rating` is not missing.
 
 ##### Distribution of column `sodium` when column `average rating` is missing and not missing
