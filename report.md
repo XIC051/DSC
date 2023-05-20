@@ -73,7 +73,8 @@ We want to use bivariate analysis to determine if there is a statistical link be
 
 ### Interesting Aggregates
 
-| ingredients_bin/steps_bin |   <5    |    5-10 |   10-15 |   15-20 |     20+ |
+| ingredients_bin
+/steps_bin |   <5    |    5-10 |   10-15 |   15-20 |     20+ |
 |:--------------------------|--------:|--------:|--------:|--------:|--------:|
 | <5                        | 4.66445 | 4.63257 | 4.61267 | 4.64353 | 4.67499 |
 | 5-10                      | 4.62099 | 4.61062 | 4.61059 | 4.63636 | 4.66111 |
