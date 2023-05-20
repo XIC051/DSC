@@ -1,6 +1,21 @@
 # DSC80-Project3-Report
 by Xiaojie Chen(A17015417), Chenri Luo(A16636808)
 ## Introduction
+
+- This website is the report of our analysis centered around the following question: **"What is the relationship between the cooking time of a recipe and its average user rating?"**
+
+- The dataset we use for our analysis is from merging two datasets, recipes and ratings, including data from food.com. After merging and cleaning, it has 83782 rows and 14 columns, with each row representing the dataset of an individual recipe. For the purpose of our analysis, the following columns are related to our question: 
+
+1. `id`: The unique identifier for each recipe.
+2. `minutes`: The cooking time required for the recipe in minutes.
+3. `average rating`: The average rating given to the recipe by users.
+4. `nutrition`: A list containing nutritional information about the recipe, including the number of calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates. We divided the list of nutrients into several columns, each column representing a nutrient. 
+**Note**: as we have separated the list of nutrition into several columns, the nutrients that are related to our analysis are `calories` and `sodium`. So we chose to drop the `nutrition` column and other neccessary nutrients columns after cleaning the DataFrame.
+
+- This analysis can provide valuable insight for relevent professionals and general public to understand the relationship bewteen the likeableness of a course (reflected by rating) and the level of sophistication for a recipe (reflected by cooking time). By the end of this analysis, readers can understand how they may be able to make their cuisine more attractive to chef and consumers by reducing or increasing the level of sophistication. It can provide insights to Questions like "are quicker recipes rated more favorably due to the convenience they offer?"
+
+- In the following parts, we will show the sections of Data Cleaning and EDA (Exploratory Data Analysis), Assessment of Missingness, and Hypothesis Testing.
+
 ## Cleaning and EDA
 ### Data Cleaning
 
@@ -26,7 +41,7 @@ As we have gained the data of average ratings for each recipe, and we can perfor
 
 #### 6. Lastly, we dropped the `rating`,`user_id`, `date`, `review`, `contributor_id`, `steps`, `ingredients`, `tags`, `nutrition`, `submitted` columns
 
-Throughout our whole analysis process, they don't have much usage. 
+Throughout our whole analysis process, they don't have much usage. Removing them will reduce workload. 
 
 - `head` of our cleaned DataFrame
 
